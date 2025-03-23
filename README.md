@@ -5,8 +5,6 @@ Projektidee: WetterApp
 1. Beschreibung
     Diese Webanwendung, die es Nutzern ermöglicht, das aktuelle Wetter für eine ausgewählte Stadt oder den eigenen Standort anzuzeigen. Zusätzlich bietet die Anwendung eine mehrtägige Wettervorhersage und die Möglichkeit, Favoritenstädte zu speichern, die schnell aufgerufen werden können. Weitere Funktionen beinhalten das Wetterradar und Informationen zur Funktionsweise der App.
 
-
-
 2. Seitenstruktur & Inhalte
     - Startseite (index.html): Begrüßung, Suchfeld zur Eingabe einer Stadt, aktuelle Wetteranzeige
     - Wetterdetails (weather.html): Detaillierte Wetterdaten für die eingegebene Stadt (Temperatur, Wetterbedingungen, Windgeschwindigkeit, Luftfeuchtigkeit)
@@ -46,4 +44,3 @@ Projektidee: WetterApp
             Beschreibung: Das Radar zeigt für die aktuelle Stadt Wetter Details, wie Regen oder Gewitter in der Umgebung an.
             Darstellung: Das Radar wird auf einer Karte der jeweiligen Stadt angezeigt. 
             Der Nutzer kann auf der Karte die Wetterbedingungen in Echtzeit sehen und über den Tag verfolgen (z. B. Regen- oder Schneefall).
-
