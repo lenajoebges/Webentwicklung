@@ -1,6 +1,6 @@
 # Webentwicklung
 
-Projektidee: "Moodify" -> Musik-generator basierend auf der aktuellen Stimmung
+Projektidee: "Moodify"
 
 1. Beschreibung: Idee
     FOM ist eine Web-App, die Nutzern basierend auf ihrer aktuellen Stimmung passende Musik vorschlägt. Die Nutzer können zwischen verschiedenen Stimmungen wählen (z. B. fröhlich, traurig, motiviert, entspannt), und die Seite zeigt dazu passende Songs oder Playlists an. Zusätzlich können Nutzer ihre Lieblingslieder oder -stimmungen speichern, um später schnell darauf zugreifen zu können.
