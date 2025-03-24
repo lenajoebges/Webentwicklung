@@ -3,13 +3,12 @@
 Projektidee: "Moodify"
 
 1. Beschreibung: Idee
-    FOM ist eine Web-App, die Nutzern basierend auf ihrer aktuellen Stimmung passende Musik vorschlägt. Die Nutzer können zwischen verschiedenen Stimmungen wählen (z. B. fröhlich, traurig, motiviert, entspannt), und die Seite zeigt dazu passende Songs oder Playlists an. Zusätzlich können Nutzer ihre Lieblingslieder oder -stimmungen speichern, um später schnell darauf zugreifen zu können.
+    Moodify ist eine Web-App, die Nutzern basierend auf ihrer aktuellen Stimmung passende Musik vorschlägt. Die Nutzer können zwischen verschiedenen Stimmungen wählen (z. B. fröhlich, traurig, motiviert, entspannt), und die Seite zeigt dazu passende Songs oder Playlists an. Zusätzlich können Nutzer ihre Lieblingslieder oder -stimmungen speichern, um später schnell darauf zugreifen zu können.
 
 2. Seitenstruktur & Inhalte: Welche Unterseiten sind beinhaltet mit welchen Inhalten?
     - Startseite: Vorstellung der App und Auswahl/Eintrag der aktuellen Stimmung
-    - Musikvorschläge: Anzeige passender Songs und Playlists basierend auf der gewählten Stimmung, welche gespeichert und favorisiert werden können.
+    - Musikvorschläge: Anzeige passender Songs und Playlists (Cover, Titel, Artist) basierend auf der gewählten Stimmung, welche gespeichert und favorisiert werden können (Button "zu Favoriten hinzufügen").
     - Favoriten: Verwaltung und Anzeige gespeicherter Lieblingssongs und -stimmungen
-    - Einstellungen: Option zur Anpassung persönlicher Präferenzen
 
 3. Datenverwaltung:
     Welche Informationen soll die Anwendung permanent speichern können?
