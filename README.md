@@ -7,13 +7,14 @@ Projektidee: "Moodify"
 
 2. Seitenstruktur & Inhalte: Welche Unterseiten sind beinhaltet mit welchen Inhalten?
     - Startseite: Vorstellung der App und Auswahl/Eintrag der aktuellen Stimmung
-    - Musikvorschläge: Anzeige passender Songs und Playlists (Cover, Titel, Artist) basierend auf der gewählten Stimmung, welche gespeichert und favorisiert werden können (Button "zu Favoriten hinzufügen").
-    - Favoriten: Verwaltung und Anzeige gespeicherter Lieblingssongs und -stimmungen
+    -> Buttons zur Auswahl der Stimmung (z. B. „Fröhlich“, „Traurig“, „Motiviert“, „Entspannt“)
+    -> Anzeige passender Songs oder Playlists basierend auf der gewählten Stimmung mit detaillierte Informationen zu einem Song (z. B. Titel, Künstler, Link zum Anhören)
+    - Favoriten-Seite (favorites.html): Liste der gespeicherten Lieblingssongs und die Möglichkeit, gespeicherte Songs aus der Favoritenliste zu löschen
 
 3. Datenverwaltung:
     Welche Informationen soll die Anwendung permanent speichern können?
     - Nutzerstimmungen: Die vom Nutzer gewählte Stimmung wird gespeichert, um darauf basierende Musikvorschläge zu generieren.
-    - Musikempfehlung: Die App ruft passende Songs oder Playlists über eine externe Musik-API (z. B. Spotify, YouTube) ab.
+    - Musikempfehlung: Die Mood buttons sind mit mit passenden Songs und Playlists auf Spotify verlinkt, so dass der user nach Eingabe der Stimmung direkt weitergeleitet wird.
     - Favoriten: Nutzer können Songs oder Stimmungen als Favoriten speichern und später erneut aufrufen. Der Nutzer hat die Möglichkeit, gespeicherte Songs oder Stimmungen zu löschen oder zu bearbeiten.
 
     Wie und wo sollen diese eingegeben oder erstellt werden?
