@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoriten - Moodify</title>
+    <link rel="stylesheet" href="mystyling.css">
+</head>
+<body>
+    <div class="background-gradient gradient-left"></div>
+    <div class="background-gradient gradient-right"></div>
+    <nav class="navbar">
+      <div class="logo">Moodify</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moods.html">Moods</a></li>
+        <li><a href="favoriten.html">Favorites</a></li>
+      </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Your Favorites</h2>
+            <p>Save your favorite moods and access them anytime you get that feeling! 😉</p>
+            
+            <div class="favorites-list">
+                <ul id="favorite-songs">
+                    <li>
+                        <img src="cover1.jpg" alt="Cover" class="song-cover">
+                        <div class="song-info"></div>
+                        <button class="like-button" onclick="toggleFavorite(this)">
+                            ❤️
+                        </button>
+                    </li>
+                    <li>
+                        <img src="cover2.jpg" alt="Cover" class="song-cover">
+                        <div class="song-info"></div>
+                        <button class="like-button" onclick="toggleFavorite(this)">
+                            ❤️
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="add-favorite">
+                <input type="text" id="mood" placeholder="your mood">
+                <input type="url" id="song-url" placeholder="song-url">
+                <button onclick="addFavorite()">Add Favorite</button>
+            </div>
+        </section>
+</body>
+</html>

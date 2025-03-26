@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moodify</title>
-    <link rel="stylesheet" href="mystyling.css" />
-  </head>
-  <body>
-    <div class="background-gradient gradient-left"></div>
-    <div class="background-gradient gradient-right"></div>
-    <nav class="navbar">
-      <div class="logo">Moodify</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="moods.html">Moods</a></li>
-        <li><a href="favoriten.html">Favoriten</a></li>
-        <li><a href="#" class="btn">Get started</a></li>
-      </ul>
-    </nav>
-    <main>
-    <div class="mood-form">
-        <h1>Create your own Jam:</h1>
-        <input type="text" id="mood-name" placeholder="Mood (e.g. Happy, Workout)">
-        <input type="text" id="mood-url" placeholder="Spotify-Playlist-URL">
-        <button onclick="addMood()">Add Mood</button>
-    </div>
-    </main>
-  </body>
+    <title>Moods - Moodify</title>
+    <link rel="stylesheet" href="mystyling.css">
+</head>
+<body>
+  <div class="background-gradient gradient-left"></div>
+  <div class="background-gradient gradient-right"></div>
+  <nav class="navbar">
+    <div class="logo">Moodify</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="moods.html">Moods</a></li>
+      <li><a href="favoriten.html">Favorites</a></li>
+    </ul>
+  </nav>
+  <main>
+      <section class="hero">
+        <h2>Choose a Mood</h2>
+        <div class="mood-list">
+        <p>Your playlists will be shown here.</p>
+        <input type="text" placeholder="Custom Mood">
+        <input type="text" placeholder="Spotify-Playlist-URL">
+        <button>Add Mood</button>
+      </section>
+  </main>
+</body>
 </html>
