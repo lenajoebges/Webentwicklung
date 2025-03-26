@@ -19,9 +19,19 @@
   </nav>
   <main>
       <section class="hero">
-        <h2>Choose a Mood</h2>
+        <section class="featured-playlists">
+          <h2>Popular Moods</h2>
+          <div class="playlist-grid">
+              <!-- Beispiel-Playlists -->
+              <div class="playlist-card">
+                <h3>Happy</h3>
+                <iframe style="border: radius 12px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1EIdDn5P759aRj?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </div>
+              <!-- Weitere Playlist-Karten -->
+          </div>
+      </section>
+        <h2>Create your own Mood</h2>
         <div class="mood-list">
-        <p>Your playlists will be shown here.</p>
         <input type="text" placeholder="Custom Mood">
         <input type="text" placeholder="Spotify-Playlist-URL">
         <button>Add Mood</button>

@@ -17,35 +17,73 @@
         <li><a href="favoriten.html">Favorites</a></li>
       </ul>
     </nav>
-    <main>
-        <section class="hero">
-            <h2>Your Favorites</h2>
-            <p>Save your favorite moods and access them anytime you get that feeling! 😉</p>
-            
-            <div class="favorites-list">
-                <ul id="favorite-songs">
-                    <li>
-                        <img src="cover1.jpg" alt="Cover" class="song-cover">
-                        <div class="song-info"></div>
-                        <button class="like-button" onclick="toggleFavorite(this)">
-                            ❤️
-                        </button>
-                    </li>
-                    <li>
-                        <img src="cover2.jpg" alt="Cover" class="song-cover">
-                        <div class="song-info"></div>
-                        <button class="like-button" onclick="toggleFavorite(this)">
-                            ❤️
-                        </button>
-                    </li>
-                </ul>
+    <main class="favorites-container">
+        <div class="playlist-header">
+            <div class="playlist-details">
+                <div class="playlist-type">Playlist</div>
+                <h1 class="playlist-name">Your Favorites</h1>
+                <p class="playlist-description">All your favorite moods and songs in one place</p>
+            </div>
+        </div>
+        
+        <div class="add-favorite">
+            <input type="text" id="mood" placeholder="Your mood">
+            <input type="url" id="song-url" placeholder="Spotify Playlist URL">
+            <button onclick="addFavorite()">Add Favorite</button>
+        </div>
+        
+        <div class="song-list">
+            <!-- Beispiel 1 -->
+            <div class="song-item">
+                <div class="song-item-header">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <img src="https://i.scdn.co/image/ab67706f00000002b0fe40a6e1692822f5a9d8f1" alt="Cover" class="song-cover">
+                        <div class="song-mood">Mood: Happy</div>
+                    </div>
+                    <button class="like-button" onclick="toggleFavorite(this)">
+                        ❤️
+                    </button>
+                </div>
+                <div class="spotify-embed">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
             </div>
             
-            <div class="add-favorite">
-                <input type="text" id="mood" placeholder="your mood">
-                <input type="url" id="song-url" placeholder="song-url">
-                <button onclick="addFavorite()">Add Favorite</button>
+            <!-- Beispiel 2 -->
+            <div class="song-item">
+                <div class="song-item-header">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <img src="https://i.scdn.co/image/ab67706f00000002f5a8b0d6e9b6b8e8b5e5b5e5" alt="Cover" class="song-cover">
+                         <div class="song-mood">Mood: Chill</div>
+                    </div>
+                    <button class="like-button" onclick="toggleFavorite(this)">
+                        ❤️
+                    </button>
+                </div>
+                <div class="spotify-embed">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EIdDn5P759aRj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
             </div>
-        </section>
+            
+            <!-- Beispiel 3 -->
+            <div class="song-item">
+                <div class="song-item-header">
+                    <div class="song-number">3</div>
+                    <div class="song-info">
+                        <img src="https://i.scdn.co/image/ab67706f00000002c63e7b3b3b3b3b3b3b3b3b3" alt="Cover" class="song-cover">
+                        <div class="song-mood">Mood: Energetic</div>
+                    </div>
+                    <button class="like-button" onclick="toggleFavorite(this)">
+                        ❤️
+                    </button>
+                </div>
+                <div class="spotify-embed">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxVfibe1L0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
