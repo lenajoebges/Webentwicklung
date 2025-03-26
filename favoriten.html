@@ -29,55 +29,58 @@
         <div class="add-favorite">
             <input type="text" id="mood" placeholder="Your mood">
             <input type="url" id="song-url" placeholder="Spotify Playlist URL">
-            <button onclick="addFavorite()">Add Favorite</button>
+            <button class="add-favorite-btn" onclick="addFavorite()">Add Favorite</button>
         </div>
         
         <div class="song-list">
-            <!-- Beispiel 1 -->
+            <!-- Happy Hits -->
             <div class="song-item">
                 <div class="song-item-header">
                     <div class="song-number">1</div>
                     <div class="song-info">
-                        <img src="https://i.scdn.co/image/ab67706f00000002b0fe40a6e1692822f5a9d8f1" alt="Cover" class="song-cover">
-                        <div class="song-mood">Mood: Happy</div>
+                        <img src="https://i.scdn.co/image/ab67706f00000002b0fe40a6e1692822f5a9d8f1" alt="Happy Hits Cover" class="song-cover">
+                        <div>
+                            <div class="song-mood">Happy Hits</div>
+                            <div class="song-artist">Mood: Happy</div>
+                        </div>
                     </div>
-                    <button class="like-button" onclick="toggleFavorite(this)">
-                        ❤️
-                    </button>
+                    <button class="like-button" onclick="toggleFavorite(this)">❤️</button>
                 </div>
                 <div class="spotify-embed">
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </div>
             
-            <!-- Beispiel 2 -->
+            <!-- Chill Vibes -->
             <div class="song-item">
                 <div class="song-item-header">
                     <div class="song-number">2</div>
                     <div class="song-info">
-                        <img src="https://i.scdn.co/image/ab67706f00000002f5a8b0d6e9b6b8e8b5e5b5e5" alt="Cover" class="song-cover">
-                         <div class="song-mood">Mood: Chill</div>
+                        <img src="https://i.scdn.co/image/ab67706f0000000251b7d5e0e5b5b5e5b5e5b5e5" alt="Chill Vibes Cover" class="song-cover">
+                        <div>
+                            <div class="song-mood">Chill Vibes</div>
+                            <div class="song-artist">Mood: Chill</div>
+                        </div>
                     </div>
-                    <button class="like-button" onclick="toggleFavorite(this)">
-                        ❤️
-                    </button>
+                    <button class="like-button" onclick="toggleFavorite(this)">❤️</button>
                 </div>
                 <div class="spotify-embed">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EIdDn5P759aRj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EIe76PziPqqlD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </div>
             
-            <!-- Beispiel 3 -->
+            <!-- Energetic Boost -->
             <div class="song-item">
                 <div class="song-item-header">
                     <div class="song-number">3</div>
                     <div class="song-info">
-                        <img src="https://i.scdn.co/image/ab67706f00000002c63e7b3b3b3b3b3b3b3b3b3" alt="Cover" class="song-cover">
-                        <div class="song-mood">Mood: Energetic</div>
+                        <img src="https://i.scdn.co/image/ab67706f00000002c63e7b3b3b3b3b3b3b3b3b3" alt="Energetic Boost Cover" class="song-cover">
+                        <div>
+                            <div class="song-mood">Energetic Boost</div>
+                            <div class="song-artist">Mood: Energetic</div>
+                        </div>
                     </div>
-                    <button class="like-button" onclick="toggleFavorite(this)">
-                        ❤️
-                    </button>
+                    <button class="like-button" onclick="toggleFavorite(this)">❤️</button>
                 </div>
                 <div class="spotify-embed">
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxVfibe1L0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

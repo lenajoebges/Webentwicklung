@@ -64,125 +64,168 @@ body {
   color: #ff0077;
 }
 
-.btn {
-  background: linear-gradient(90deg, #ff0077, #7b2ff7);
-  padding: 8px 15px;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-}
-
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  text-align: center;
+  padding: 80px 20px;
 }
 
 .hero h1 {
   font-size: 60px;
   font-weight: 700;
   letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 20px;
   font-weight: 400;
   color: #ccc;
-}
-
-.hero p:nth-of-type(2) {
-  margin-top: 5px;
+  margin: 10px 0;
 }
 
 .mood-selection {
   display: flex;
   justify-content: center;
-  gap: 15px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin: 40px auto;
+  max-width: 800px;
 }
 
-.mood-selection .mood {
-  background: rgb(255, 255, 255);
-  text-decoration: none;
-  padding: 12px 25px;
+.mood-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
   border-radius: 25px;
-  color: rgb(0, 0, 0);
+  font-size: 16px;
   font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #0D0D0D;
+  border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s;
+  min-width: 120px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.mood-selection .mood:hover {
-  transform: scale(1.1);
-  background: #ff0077;
+.mood-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #ff0077;
+}
+
+.mood-btn:active {
+  transform: translateY(1px);
+}
+
+.mood-btn span {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.moods-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 30px;
   color: white;
 }
 
-input {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
 }
-.favorites-list {
-  margin: 40px auto;
-  width: 80%;
+
+.playlist-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.favorites-list ul {
-  list-style-type: none;
-  padding: 0;
+.playlist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.favorite-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
+.playlist-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  color: white;
 }
 
-.favorite-item:last-child {
-  border-bottom: none;
+.spotify-embed {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.song-cover {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 5px;
+.create-mood {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.song-info {
-  flex-grow: 1;
-  margin-left: 10px;
+.create-mood h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.like-button {
-  background: none;
-  border: none;
-  color: #ff4f4f;
-  font-size: 24px;
-  cursor: pointer;
-  transition: color 0.3s;
+.form-group {
+  margin-bottom: 20px;
 }
 
-.like-button:hover {
-  color: #ff1a1a;
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
 }
 
-.like-button:focus {
+.form-group input:focus {
   outline: none;
+  border-color: #7b2ff7;
 }
+
+.add-mood-btn {
+  background: linear-gradient(90deg, #ff0077, #7b2ff7);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 100%;
+}
+
+.add-mood-btn:hover {
+  transform: scale(1.03);
+}
+
+input {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+}
+
 .favorites-container {
   padding: 20px 40px;
 }
@@ -194,17 +237,6 @@ input {
   margin-bottom: 30px;
 }
 
-.playlist-image {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, var(--gradient-left), var(--gradient-right));
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-}
-
 .playlist-details {
   flex: 1;
 }
@@ -213,6 +245,7 @@ input {
   text-transform: uppercase;
   font-size: 12px;
   margin-bottom: 10px;
+  color: #ccc;
 }
 
 .playlist-name {
@@ -222,21 +255,25 @@ input {
   line-height: 1;
 }
 
+.playlist-description {
+  color: #ccc;
+  margin-top: 10px;
+}
+
 .song-list {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .song-item {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .song-item-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
 }
 
 .song-number {
@@ -257,31 +294,44 @@ input {
   width: 40px;
   height: 40px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .song-mood {
   font-weight: 500;
 }
 
+.song-artist {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
 .like-button {
   background: none;
   border: none;
-  color: inherit;
+  color: #ff0077;
   font-size: 20px;
   cursor: pointer;
   padding: 0 10px;
+  transition: transform 0.2s;
+}
+
+.like-button:hover {
+  transform: scale(1.2);
 }
 
 .spotify-embed {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .add-favorite {
   display: flex;
   gap: 10px;
-  margin: 10px;
+  margin: 20px 0;
 }
 
 .add-favorite input {
@@ -290,6 +340,7 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
+  font-size: 14px;
 }
 
 .add-favorite button {
@@ -300,4 +351,9 @@ input {
   border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.add-favorite button:hover {
+  transform: scale(1.05);
 }
