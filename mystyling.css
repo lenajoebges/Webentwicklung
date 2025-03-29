@@ -172,16 +172,21 @@ body {
   font-size: 1.2rem;
 }
 
-.favorite-btn {
+.favorite-button {
   background: none;
   border: none;
-  font-size: 1.4rem;
+  padding: 0;
   cursor: pointer;
-  color: #ff0077;
-  transition: color 0.3s;
 }
 
-.favorite-btn:hover {
+.heart-icon {
+  background: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.heart-icon:hover {
   color: #e74c3c;
 }
 
@@ -192,7 +197,6 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Container für das Erstellen von Moods */
 .create-mood {
   background: rgba(30, 30, 30, 0.7);
   border-radius: 12px;
