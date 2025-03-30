@@ -312,13 +312,6 @@ body {
   flex-grow: 1;
 }
 
-.song-cover {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
 .song-mood {
   font-weight: 500;
 }
