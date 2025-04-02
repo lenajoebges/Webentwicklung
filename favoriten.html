@@ -26,11 +26,28 @@
             </div>
         </div>
         
-        <div class="add-favorite">
-            <input type="text" id="mood" placeholder="Your mood">
-            <input type="url" id="song-url" placeholder="Spotify Playlist URL">
-            <button class="add-favorite-btn" onclick="addFavorite()">Add Favorite</button>
-        </div>
+        <form action="#" method="post">
+            <div class="form-container">
+            <label for="mood-select">Choose your Mood:</label>
+            <select id="mood-select" name="mood">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="energetic">Energetic</option>
+                <option value="chill">Chill</option>
+                <option value="new-mood">Create new Mood...</option>
+            </select>
+        
+            <div id="new-mood-container" style="display: none;">
+                <label for="new-mood">New Mood:</label>
+                <input type="text" id="new-mood" name="new-mood">
+            </div>
+        
+            <label for="favorite-song">Add Favorite:</label>
+            <input type="text" id="favorite-song" name="favorite-song" required>
+            
+            <button type="submit">Save</button>
+            </div>
+        </form>
         
         <div class="song-list">
             <!-- Happy Hits -->
@@ -69,9 +86,7 @@
             <div class="song-item">
                 <div class="song-item-header">
                     <div class="song-number">3</div>
-                    <div class="song-info">
-                        <img src="https://i.scdn.co/image/ab67706f00000002c63e7b3b3b3b3b3b3b3b3b3" alt="Energetic Boost Cover" class="song-cover">
-                        <div>
+                    <div class="song-info"><div>
                             <div class="song-mood">Energetic Boost</div>
                             <div class="song-artist">Mood: Energetic</div>
                         </div>
