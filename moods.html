@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moods - Moodify</title>
     <link rel="stylesheet" href="mystyling.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
   <div class="background-gradient gradient-left"></div>
@@ -99,15 +100,17 @@
       </div>
     </div>
 
+    <div id="moodContainer">
+    </div>    
     <div class="create-mood">
       <h2 class="section-title">Create your own Mood</h2>
       <div class="form-group">
-        <input type="text" placeholder="Mood Name (e.g. 'Morning Coffee')">
+        <input type="text" id="moodName" placeholder="Mood Name (e.g. 'Morning Coffee')">
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Spotify Playlist URL">
+        <input type="text" id="moodURL" placeholder="Spotify Playlist URL">
       </div>
-      <button class="add-mood-btn">Add Mood</button>
+      <button id="addMoodBtn" class="add-mood-btn">Add Mood</button>
     </div>
   </main>
 </body>
