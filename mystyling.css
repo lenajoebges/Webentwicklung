@@ -121,6 +121,12 @@ body {
   font-size: 18px;
 }
 
+.mood-btn.clicked {
+  transform: scale(0.95);
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
 /*MOODS.HTML*/
 .moods-container {
   padding: 40px;
@@ -135,7 +141,7 @@ body {
 }
 
 .empty-placeholder {
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,8 +258,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s;
-  width: auto; 
-  max-width: 300px; 
+  width: auto;
+  max-width: 300px;
   margin: 20px auto 0 auto;
   display: block;
 }
@@ -262,16 +268,81 @@ body {
   transform: scale(1.03);
 }
 
+.playlist-card.fullscreen-card {
+  position: relative;
+  display: block;
+  max-width: 900px;
+  width: 90%;
+  margin: 20px auto 0 auto;
+  padding: 40px;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  transform: scale(1.05);
+}
+
+fullscreen-card {
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+}
+
+.playlist-grid.only-one {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlist-card.hidden {
+  display: none;
+}
+
+.back-button {
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  font: weight 500px;
+  ;
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.back-button {
+  display: none;
+}
+
 /*FAVORITEN.HTML*/
 .form-container {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    max-width: 600px;
-    width: auto;
-    margin: 0 auto;
-    padding: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 600px;
+  width: auto;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .form-container input[type="text"],
