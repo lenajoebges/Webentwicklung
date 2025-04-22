@@ -1,9 +1,14 @@
-console.log("JS läuft");
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("JS läuft");
+
   const moodNameInput = document.getElementById("moodName");
   const moodURLInput = document.getElementById("moodURL");
   const addMoodBtn = document.getElementById("addMoodBtn");
   const yourMoodsGrid = document.getElementById("yourMoodsGrid");
+
+  document.querySelectorAll(".playlist-card").forEach(card => {
+    addFavoriteButtonHandler(card);
+  });
 
   addMoodBtn.addEventListener("click", function () {
     const moodName = moodNameInput.value.trim();
@@ -32,39 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (placeholder) placeholder.remove();
 
     yourMoodsGrid.prepend(newCard);
+    addFavoriteButtonHandler(newCard);
 
     moodNameInput.value = "";
     moodURLInput.value = "";
   });
 
-  document.querySelectorAll(".favorite-button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const heart = btn.querySelector(".heart-icon");
-      heart.textContent = heart.textContent === "♡" ? "❤️" : "♡";
-    });
-  });  
-
-  document.querySelectorAll(".favorite button").forEach(btn => {
-    button.addEventListener("click", () => {
-      const card = btn.closest(".playlist-card");
-      const title = card.querySelector(".mood-title").textContent.trim();
-      const iframe = card.querySelector("iframe").getAttribute("src");
-
-      const playlistData = { title, src: iframe };
-
-      const heart = btn.querySelector(".heart-icon)")
-      const favorited = heart.textContent == "❤️";
-      heart.textContent = favorited ? "♡" : "❤️";
-
-      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-      if (!favorited) {
-        favorites.unshift(playlistData);
-      } else {
-        favorites = favorites.filter(item => item.src !== iframe);
-      }
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    });
+  document.querySelectorAll(".playlist-card").forEach(card => {
+    addFavoriteButtonHandler(card);
   });
 
   const params = new URLSearchParams(window.location.search);
@@ -137,6 +117,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const createMood = document.querySelector(".create-mood");
     if (selectedMood && createMood) {
       createMood.style.display = "none";
+    }
+  }
+  function addFavoriteButtonHandler(card) {
+    const btn = card.querySelector(".favorite-button");
+    const heart = btn.querySelector(".heart-icon");
+    const title = card.querySelector(".mood-title").textContent.trim();
+    const iframe = card.querySelector("iframe").getAttribute("src");
+
+    const playlistData = { title, src: iframe };
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const isAlreadyFavorite = favorites.some(item => item.src === iframe);
+    heart.textContent = isAlreadyFavorite ? "❤️" : "♡";
+
+    if (!btn.classList.contains("favorited-bound")) {
+      btn.classList.add("favorited-bound");
+  
+      btn.addEventListener("click", () => {
+        favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const isNowFavorite = heart.textContent === "❤️";
+  
+        if (isNowFavorite) {
+          favorites = favorites.filter(item => item.src !== iframe);
+          heart.textContent = "♡";
+        } else {
+          favorites.unshift(playlistData);
+          heart.textContent = "❤️";
+        }
+  
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+      });
     }
   }
 });
