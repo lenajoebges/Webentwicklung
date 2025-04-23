@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     addFavoriteButtonHandler(card);
   });
 
+  renderMoods();
+
   addMoodBtn.addEventListener("click", function () {
     const moodName = moodNameInput.value.trim();
     const moodURL = moodURLInput.value.trim();
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     moodNameInput.value = "";
     moodURLInput.value = "";
+    renderMoods();
   });
 
   document.querySelectorAll(".playlist-card").forEach(card => {
