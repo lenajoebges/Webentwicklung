@@ -1,8 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("favoriten.js läuft");
-  
-    const songList = document.querySelector(".song-list");
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const songList = document.querySelector(".song-list");
+  const moodNameInput = document.getElementById("moodName");
+  const moodURLInput = document.getElementById("moodURL");
+  const saveButton = document.getElementById("save-btn");
+
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  renderFavorites();
+
+  saveButton.addEventListener("click", function () {
+    const mood = moodNameInput.value.trim();
+    const title = mood ? `${mood.charAt(0).toUpperCase() + mood.slice(1)} Mood` : "Custom Mood";
+    const url = moodURLInput.value.trim();
+
+    if (!url) {
+      alert("Bitte gib eine gültige Spotify-Playlist-URL ein.");
+      return;
+    }
+    
+    const newFavorite = { title, src: url };
+
+    favorites = favorites.filter(item => item.src !== url);
+    favorites.unshift(newFavorite);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    moodNameInput.value = "";
+    moodURLInput.value = "";
+    renderFavorites();
+  });
+
+  function renderFavorites() {
+    songList.innerHTML = "";
   
     favorites.forEach((fav, index) => {
       const card = document.createElement("div");
@@ -24,15 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
             loading="lazy"></iframe>
         </div>
       `;
-  
-      const removeBtn = card.querySelector(".remove-button");
-      removeBtn.addEventListener("click", () => {
+
+      card.querySelector(".remove-button").addEventListener("click", () => {
         favorites.splice(index, 1);
         localStorage.setItem("favorites", JSON.stringify(favorites));
-        card.remove();
+        renderFavorites();
       });
-  
-      songList.prepend(card);
+
+      songList.appendChild(card);
     });
-  });
-  
+  }
+});
