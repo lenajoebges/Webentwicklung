@@ -6,45 +6,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const addMoodBtn = document.getElementById("addMoodBtn");
   const yourMoodsGrid = document.getElementById("yourMoodsGrid");
 
-  document.querySelectorAll(".playlist-card").forEach(card => {
-    addFavoriteButtonHandler(card);
-  });
+  let customMoods = JSON.parse(localStorage.getItem("customMoods")) || [];
 
-  renderMoods();
+  customMoods.forEach(mood => {
+    const newCard = createMoodCard(mood.title, mood.src);
+    yourMoodsGrid.prepend(newCard);
+    addFavoriteButtonHandler(newCard);
+  });
 
   addMoodBtn.addEventListener("click", function () {
     const moodName = moodNameInput.value.trim();
     const moodURL = moodURLInput.value.trim();
 
     if (!moodName || !moodURL) {
-      alert("Error.");
+      alert("Bitte gib einen Namen und eine gültige Spotify-URL ein.");
       return;
     }
 
-    const newCard = document.createElement("div");
-    newCard.className = "playlist-card";
-    newCard.innerHTML = `
-      <div class="card-header">
-        <h3 class="mood-title">${moodName}</h3>
-        <button class="favorite-button">
-          <span class="heart-icon">♡</span>
-        </button>
-      </div>
-      <div class="spotify-embed">
-        <iframe style="border-radius:12px" src="${moodURL}" width="100%" height="200" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    `;
+    const newCard = createMoodCard(moodName, moodURL);
 
-    const placeholder = document.getElementById("emptyPlaceholder");
-    if (placeholder) placeholder.remove();
+    customMoods.unshift({ title: moodName, src: moodURL });
+    localStorage.setItem("customMoods", JSON.stringify(customMoods));
+
+    updateEmptyPlaceholder();
 
     yourMoodsGrid.prepend(newCard);
     addFavoriteButtonHandler(newCard);
 
     moodNameInput.value = "";
     moodURLInput.value = "";
-    renderMoods();
   });
+
+  function createMoodCard(title, url) {
+    const newCard = document.createElement("div");
+    newCard.className = "playlist-card";
+    newCard.innerHTML = `
+      <div class="card-header">
+        <h3 class="mood-title">${title}</h3>
+        <button class="favorite-button">
+          <span class="heart-icon">♡</span>
+        </button>
+      </div>
+      <div class="spotify-embed">
+        <iframe style="border-radius:12px" src="${url}" width="100%" height="200" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    `;
+    return newCard;
+  }
 
   document.querySelectorAll(".playlist-card").forEach(card => {
     addFavoriteButtonHandler(card);
@@ -87,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (popularTitle) {
       popularTitle.textContent = `${selectedMood.charAt(0).toUpperCase() + selectedMood.slice(1)} Mood`;
     }
+
     const backButton = document.getElementById("showAllMoodsBtn");
     if (backButton) {
       backButton.addEventListener("click", function () {
@@ -112,16 +121,19 @@ document.addEventListener("DOMContentLoaded", function () {
         backButton.style.display = "none";
       });
     }
+
     if (selectedMood && backButton) {
       backButton.style.display = "block";
     } else if (backButton) {
       backButton.style.display = "none";
     }
+
     const createMood = document.querySelector(".create-mood");
     if (selectedMood && createMood) {
       createMood.style.display = "none";
     }
   }
+
   function addFavoriteButtonHandler(card) {
     const btn = card.querySelector(".favorite-button");
     const heart = btn.querySelector(".heart-icon");
@@ -129,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const iframe = card.querySelector("iframe").getAttribute("src");
 
     const playlistData = { title, src: iframe };
-
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     const isAlreadyFavorite = favorites.some(item => item.src === iframe);
@@ -137,21 +148,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!btn.classList.contains("favorited-bound")) {
       btn.classList.add("favorited-bound");
-  
+
       btn.addEventListener("click", () => {
         favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         const isNowFavorite = heart.textContent === "❤️";
-  
+
         if (isNowFavorite) {
           favorites = favorites.filter(item => item.src !== iframe);
           heart.textContent = "♡";
+
+          card.remove();
+
+          updateEmptyPlaceholder();
+
         } else {
           favorites.unshift(playlistData);
           heart.textContent = "❤️";
+
+          updateEmptyPlaceholder();
         }
-  
+
         localStorage.setItem("favorites", JSON.stringify(favorites));
       });
+    }
+  }
+
+  function updateEmptyPlaceholder() {
+    const placeholder = document.getElementById("emptyPlaceholder");
+    const hasMoods = yourMoodsGrid.querySelectorAll(".playlist-card").length > 0;
+
+    if (placeholder) {
+      placeholder.style.display = hasMoods ? "none" : "flex";
+    } else if (!hasMoods) {
+      const newPlaceholder = document.createElement("div");
+      newPlaceholder.id = "emptyPlaceholder";
+      newPlaceholder.className = "empty-placeholder";
+      newPlaceholder.innerHTML = `<p>No moods yet - create your own vibe below 🎧</p>`;
+      yourMoodsGrid.appendChild(newPlaceholder);
     }
   }
 });
