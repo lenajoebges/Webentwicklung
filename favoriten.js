@@ -10,14 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   saveButton.addEventListener("click", function () {
     const mood = moodNameInput.value.trim();
+    
     const title = mood ? `${mood.charAt(0).toUpperCase() + mood.slice(1)} Mood` : "Custom Mood";
+    if (!title.trim()) {
+      alert("Bitte gib einen Titel ein.");
+      return;
+    }
+
     const url = moodURLInput.value.trim();
 
     if (!url) {
       alert("Bitte gib eine gültige Spotify-Playlist-URL ein.");
       return;
     }
-    
+
     const newFavorite = { title, src: url };
 
     favorites = favorites.filter(item => item.src !== url);
@@ -31,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function renderFavorites() {
     songList.innerHTML = "";
-  
+
     favorites.forEach((fav, index) => {
       const card = document.createElement("div");
       card.className = "song-item";
-  
+
       card.innerHTML = `
         <div class="song-item-header">
           <div class="song-number">${index + 1}</div>

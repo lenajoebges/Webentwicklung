@@ -476,3 +476,53 @@ form button:hover {
 .remove-button:hover {
   transform: scale(1.2);
 }
+
+/* ACTION ITEMS*/
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5em;
+}
+
+.favorite-button,
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: white;
+  cursor: pointer;
+}
+
+.favorite-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+
+.spotify-embed iframe {
+  width: 100%;
+  height: 152px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .playlist-card {
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  body {
+    padding: 10px;
+  }
+}

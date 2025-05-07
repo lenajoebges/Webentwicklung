@@ -14,12 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
     addFavoriteButtonHandler(newCard);
   });
 
+  updateEmptyPlaceholder();
+
   addMoodBtn.addEventListener("click", function () {
     const moodName = moodNameInput.value.trim();
     const moodURL = moodURLInput.value.trim();
-
+  
     if (!moodName || !moodURL) {
       alert("Bitte gib einen Namen und eine gültige Spotify-URL ein.");
+      return;
+    }
+  
+    if (customMoods.some(m => m.title.toLowerCase() === moodName.toLowerCase())) {
+      alert("Ein Mood mit diesem Namen existiert bereits.");
       return;
     }
 
@@ -41,16 +48,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const newCard = document.createElement("div");
     newCard.className = "playlist-card";
     newCard.innerHTML = `
-      <div class="card-header">
-        <h3 class="mood-title">${title}</h3>
+    <div class="card-header">
+      <h3 class="mood-title">${title}</h3>
+      <div class="card-actions">
         <button class="favorite-button">
           <span class="heart-icon">♡</span>
         </button>
+        <button class="delete-button">🗑️</button>
       </div>
-      <div class="spotify-embed">
-        <iframe style="border-radius:12px" src="${url}" width="100%" height="200" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    `;
+    </div>
+    <div class="spotify-embed">
+      <iframe
+      style="border-radius:12px"
+      src="${url}"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+      </iframe>
+    </div>
+  `;
+    const deleteBtn = newCard.querySelector(".delete-button");
+    deleteBtn.addEventListener("click", () => {
+      customMoods = customMoods.filter(m => !(m.title === title && m.src === url));
+      localStorage.setItem("customMoods", JSON.stringify(customMoods));
+
+      newCard.remove();
+      updateEmptyPlaceholder();
+    });
+
     return newCard;
   }
 
@@ -175,16 +202,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateEmptyPlaceholder() {
     const placeholder = document.getElementById("emptyPlaceholder");
-    const hasMoods = yourMoodsGrid.querySelectorAll(".playlist-card").length > 0;
-
+    
+    const ownCards = yourMoodsGrid.querySelectorAll(".playlist-card");
+    const hasOwnMoods = Array.from(ownCards).some(card =>
+      card.closest("#yourMoodsGrid")
+    );
+  
     if (placeholder) {
-      placeholder.style.display = hasMoods ? "none" : "flex";
-    } else if (!hasMoods) {
-      const newPlaceholder = document.createElement("div");
-      newPlaceholder.id = "emptyPlaceholder";
-      newPlaceholder.className = "empty-placeholder";
-      newPlaceholder.innerHTML = `<p>No moods yet - create your own vibe below 🎧</p>`;
-      yourMoodsGrid.appendChild(newPlaceholder);
+      placeholder.style.display = hasOwnMoods ? "none" : "flex";
     }
-  }
+  }  
 });
