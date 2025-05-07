@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
     customMoods.unshift({ title: moodName, src: moodURL });
     localStorage.setItem("customMoods", JSON.stringify(customMoods));
 
-    updateEmptyPlaceholder();
-
     yourMoodsGrid.prepend(newCard);
     addFavoriteButtonHandler(newCard);
+
+    updateEmptyPlaceholder();
 
     moodNameInput.value = "";
     moodURLInput.value = "";
@@ -202,14 +202,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateEmptyPlaceholder() {
     const placeholder = document.getElementById("emptyPlaceholder");
-    
-    const ownCards = yourMoodsGrid.querySelectorAll(".playlist-card");
-    const hasOwnMoods = Array.from(ownCards).some(card =>
-      card.closest("#yourMoodsGrid")
-    );
+    const hasMoodCards = yourMoodsGrid.querySelectorAll(".playlist-card").length > 0;
   
     if (placeholder) {
-      placeholder.style.display = hasOwnMoods ? "none" : "flex";
+      placeholder.style.display = hasMoodCards ? "none" : "flex";
     }
-  }  
+  }
 });
