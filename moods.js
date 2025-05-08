@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
   addMoodBtn.addEventListener("click", function () {
     const moodName = moodNameInput.value.trim();
     const moodURL = moodURLInput.value.trim();
-  
+
     if (!moodName || !moodURL) {
       alert("Bitte gib einen Namen und eine gültige Spotify-URL ein.");
       return;
     }
-  
+
     if (customMoods.some(m => m.title.toLowerCase() === moodName.toLowerCase())) {
       alert("Ein Mood mit diesem Namen existiert bereits.");
       return;
@@ -124,28 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const backButton = document.getElementById("showAllMoodsBtn");
+
     if (backButton) {
       backButton.addEventListener("click", function () {
-        document.querySelectorAll(".playlist-card").forEach(card => {
-          card.classList.remove("hidden", "fullscreen-card");
-        });
-
-        document.querySelectorAll(".playlist-grid").forEach(grid => {
-          grid.classList.remove("only-one");
-          grid.style.display = "";
-        });
-
-        const allTitles = document.querySelectorAll("h1.section-title");
-        allTitles.forEach(title => {
-          if (title.textContent.toLowerCase().includes("your moods")) {
-            title.style.display = "block";
-          } else {
-            title.textContent = "Popular Moods";
-          }
-        });
-
-        if (yourMoodsGrid) yourMoodsGrid.style.display = "grid";
-        backButton.style.display = "none";
+        window.location.href = "moods.html";
       });
     }
 
@@ -203,9 +185,16 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateEmptyPlaceholder() {
     const placeholder = document.getElementById("emptyPlaceholder");
     const hasMoodCards = yourMoodsGrid.querySelectorAll(".playlist-card").length > 0;
-  
+
+    const params = new URLSearchParams(window.location.search);
+    const selectedMood = params.get("mood");
+
     if (placeholder) {
-      placeholder.style.display = hasMoodCards ? "none" : "flex";
+      if (!hasMoodCards && !selectedMood) {
+        placeholder.style.display = "block";
+      } else {
+        placeholder.style.display = "none";
+      }
     }
   }
 });

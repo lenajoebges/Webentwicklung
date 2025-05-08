@@ -511,6 +511,17 @@ form button:hover {
   box-shadow: none;
 }
 
+.empty-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  color: #ccc;
+  margin: 2em 0;
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   .playlist-card {
     flex-direction: column;
