@@ -88,6 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
   const selectedMood = params.get("mood");
 
+  const backButton = document.getElementById("showAllMoodsBtn");
+
+  if (selectedMood && backButton) {
+    backButton.style.display = "inline-block";
+    backButton.addEventListener("click", function () {
+      window.location.href = "moods.html";
+    });
+  } else if (backButton) {
+    backButton.style.display = "none";
+  }
+
   if (selectedMood) {
     const allCards = document.querySelectorAll(".playlist-card");
 

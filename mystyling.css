@@ -147,11 +147,13 @@ body {
   align-items: center;
   text-align: center;
   padding: 30px;
-  color: #aaa;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: rgb(157, 157, 157);
   font-style: italic;
   font-size: 1.2rem;
   border-radius: 12px;
-  background-color: none;
+  background-color: transparent;
 }
 
 .playlist-grid {
@@ -169,17 +171,6 @@ body {
   padding: 20px;
 }
 
-.playlist-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.playlist-card h3 {
-  margin: 0 0 15px 0;
-  font-size: 22px;
-  color: white;
-}
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -192,11 +183,42 @@ body {
   font-size: 1.2rem;
 }
 
-.favorite-button {
+.card-actions {
+  display: flex;
+  gap: 0.5em;
+}
+
+.favorite-button,
+.delete-button {
   background: none;
   border: none;
-  padding: 0;
+  font-size: 1.2em;
+  color: white;
   cursor: pointer;
+}
+
+.favorite-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+
+.spotify-embed iframe {
+  width: 100%;
+  height: 152px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.playlist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.playlist-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  color: white;
 }
 
 .heart-icon {
@@ -278,9 +300,6 @@ body {
   background-color: #1e1e1e;
   border-radius: 16px;
   transform: scale(1.05);
-}
-
-fullscreen-card {
   animation: fadeInUp 0.4s ease;
 }
 
@@ -315,22 +334,18 @@ fullscreen-card {
   border: none;
   color: #fff;
   font-size: 0.9rem;
-  font: weight 500px;
-  ;
+  font-weight: 500;
   padding: 4px 8px;
   cursor: pointer;
   z-index: 1000;
   opacity: 0.8;
   transition: 0.3s;
+  display: none;
 }
 
 .back-button:hover {
   opacity: 1;
   transform: scale(1.05);
-}
-
-.back-button {
-  display: none;
 }
 
 /*FAVORITEN.HTML*/
@@ -477,48 +492,6 @@ form button:hover {
   transform: scale(1.2);
 }
 
-/* ACTION ITEMS*/
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-actions {
-  display: flex;
-  gap: 0.5em;
-}
-
-.favorite-button,
-.delete-button {
-  background: none;
-  border: none;
-  font-size: 1.2em;
-  color: white;
-  cursor: pointer;
-}
-
-.favorite-button:hover,
-.delete-button:hover {
-  opacity: 0.8;
-}
-
-.spotify-embed iframe {
-  width: 100%;
-  height: 152px;
-  border: none;
-  border-radius: 12px;
-  box-shadow: none;
-}
-
-.empty-placeholder {
-  color: rgb(157, 157, 157);
-  font-style: italic;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 @media (max-width: 600px) {
   .playlist-card {
     flex-direction: column;
@@ -532,5 +505,13 @@ form button:hover {
 
   body {
     padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 }
