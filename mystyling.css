@@ -512,14 +512,11 @@ form button:hover {
 }
 
 .empty-placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  color: rgb(157, 157, 157);
   font-style: italic;
-  color: #ccc;
-  margin: 2em 0;
-  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
