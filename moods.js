@@ -83,6 +83,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".playlist-card").forEach(card => {
     addFavoriteButtonHandler(card);
+
+    const allPlaylistCards = document.querySelectorAll(".playlist-card");
+    const existingFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    allPlaylistCards.forEach(card => {
+      const title = card.querySelector(".mood-title")?.textContent.trim();
+      const iframe = card.querySelector("iframe")?.getAttribute("src");
+      const heartIcon = card.querySelector(".heart-icon");
+
+      if (!title || !iframe || !heartIcon) return;
+
+      const isFavorited = existingFavorites.some(fav => fav.src === iframe);
+
+      if (isFavorited) {
+        heartIcon.textContent = "❤️";
+      } else {
+        heartIcon.textContent = "♡";
+      }
+    });
+
   });
 
   const params = new URLSearchParams(window.location.search);
@@ -176,8 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNowFavorite) {
           favorites = favorites.filter(item => item.src !== iframe);
           heart.textContent = "♡";
-
-          card.remove();
 
           updateEmptyPlaceholder();
 
