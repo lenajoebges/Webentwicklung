@@ -110,15 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const backButton = document.getElementById("showAllMoodsBtn");
 
-  if (selectedMood && backButton) {
-    backButton.style.display = "inline-block";
-    backButton.addEventListener("click", function () {
-      window.location.href = "moods.html";
-    });
-  } else if (backButton) {
-    backButton.style.display = "none";
-  }
-
   if (selectedMood) {
     const allCards = document.querySelectorAll(".playlist-card");
 
@@ -156,17 +147,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const backButton = document.getElementById("showAllMoodsBtn");
 
-    if (backButton) {
-      backButton.addEventListener("click", function () {
+    if (backButton && !backButton.classList.contains("bound")) {
+      backButton.classList.add("bound");
+      backButton.addEventListener("click", () => {
         window.location.href = "moods.html";
       });
     }
 
-    if (selectedMood && backButton) {
-      backButton.style.display = "block";
-    } else if (backButton) {
-      backButton.style.display = "none";
+    if (backButton) {
+      backButton.style.display = selectedMood ? "inline-block" : "none";
     }
+
 
     const createMood = document.querySelector(".create-mood");
     if (selectedMood && createMood) {
