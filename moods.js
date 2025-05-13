@@ -88,16 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const iframe = card.querySelector("iframe")?.getAttribute("src");
     const heartIcon = card.querySelector(".heart-icon");
   
-    const deleteBtn = card.querySelector(".delete-button");
-    if (deleteBtn) {
-      deleteBtn.addEventListener("click", () => {
-        customMoods = customMoods.filter(m => !(m.title === title && m.src === iframe));
-        localStorage.setItem("customMoods", JSON.stringify(customMoods));
-        card.remove();
-        updateEmptyPlaceholder();
-      });
-    }
-  
     const existingFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
   
     if (!title || !iframe || !heartIcon) return;
