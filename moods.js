@@ -83,32 +83,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".playlist-card").forEach(card => {
     addFavoriteButtonHandler(card);
-
-    const allPlaylistCards = document.querySelectorAll(".playlist-card");
+  
+    const title = card.querySelector(".mood-title")?.textContent.trim();
+    const iframe = card.querySelector("iframe")?.getAttribute("src");
+    const heartIcon = card.querySelector(".heart-icon");
+  
+    const deleteBtn = card.querySelector(".delete-button");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", () => {
+        customMoods = customMoods.filter(m => !(m.title === title && m.src === iframe));
+        localStorage.setItem("customMoods", JSON.stringify(customMoods));
+        card.remove();
+        updateEmptyPlaceholder();
+      });
+    }
+  
     const existingFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    allPlaylistCards.forEach(card => {
-      const title = card.querySelector(".mood-title")?.textContent.trim();
-      const iframe = card.querySelector("iframe")?.getAttribute("src");
-      const heartIcon = card.querySelector(".heart-icon");
-
-      if (!title || !iframe || !heartIcon) return;
-
-      const isFavorited = existingFavorites.some(fav => fav.src === iframe);
-
-      if (isFavorited) {
-        heartIcon.textContent = "❤️";
-      } else {
-        heartIcon.textContent = "♡";
-      }
-    });
-
+  
+    if (!title || !iframe || !heartIcon) return;
+  
+    const isFavorited = existingFavorites.some(fav => fav.src === iframe);
+    heartIcon.textContent = isFavorited ? "❤️" : "♡";
   });
+  
 
   const params = new URLSearchParams(window.location.search);
   const selectedMood = params.get("mood");
 
   const backButton = document.getElementById("showAllMoodsBtn");
+
+  if (selectedMood && backButton) {
+    backButton.style.display = "inline-block";
+    backButton.addEventListener("click", function () {
+      window.location.href = "moods.html";
+    });
+  } else if (backButton) {
+    backButton.style.display = "none";
+  }
 
   if (selectedMood) {
     const allCards = document.querySelectorAll(".playlist-card");
@@ -147,17 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const backButton = document.getElementById("showAllMoodsBtn");
 
-    if (backButton && !backButton.classList.contains("bound")) {
-      backButton.classList.add("bound");
-      backButton.addEventListener("click", () => {
+    if (backButton) {
+      backButton.addEventListener("click", function () {
         window.location.href = "moods.html";
       });
     }
 
-    if (backButton) {
-      backButton.style.display = selectedMood ? "inline-block" : "none";
+    if (selectedMood && backButton) {
+      backButton.style.display = "block";
+    } else if (backButton) {
+      backButton.style.display = "none";
     }
-
 
     const createMood = document.querySelector(".create-mood");
     if (selectedMood && createMood) {
