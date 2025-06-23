@@ -1,0 +1,8 @@
+node_modules
+/database/zipInstall/node_modules
+/database
+*.sqbpro
+# MongoDB-Installer ignorieren
+*.zip
+*.tar.gz
+*.tgz

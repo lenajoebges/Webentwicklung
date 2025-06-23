@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoriten - Moodify</title>
+    <link rel="stylesheet" href="css/mystyling.css" />
+    <script src="src/favoriten.js" defer></script>
+</head>
+<body>
+    <div class="background-gradient gradient-left"></div>
+    <div class="background-gradient gradient-right"></div>
+    <nav class="navbar">
+      <div class="logo">Moodify</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moods.html">Moods</a></li>
+        <li><a href="favoriten.html">Favorites</a></li>
+      </ul>
+    </nav>
+    <main class="favorites-container">
+        <div class="playlist-header">
+            <div class="playlist-details">
+                <div class="playlist-type">Playlist</div>
+                <h1 class="playlist-name">Your Favorites</h1>
+                <p class="playlist-description">All your favorite moods and songs in one place</p>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <label for="mood-select">Choose your Mood:</label>
+            <div id="mood-select" name="mood">
+                <input type="text" id="moodName" placeholder="Mood Name">
+            </div>
+        
+            <label for="favorite-song">Your JAM:</label>
+            <input type="text" id="moodURL" placeholder="Spotify Playlist URL" required>
+            
+            <button type="button" id="save-btn">Save</button>
+        </div>
+        
+        <div class="song-list">
+        </div>
+    </main>
+</body>
+</html>

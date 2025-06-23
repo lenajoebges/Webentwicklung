@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moods - Moodify</title>
-  <link rel="stylesheet" href="mystyling.css">
-  <script src="moods.js" defer></script>
+  <link rel="stylesheet" href="css/mystyling.css" />
+  <script src="src/moods.js" defer></script>
 </head>
 
 <body>
@@ -26,14 +26,14 @@
       <div id="emptyPlaceholder" class="empty-placeholder">
         No moods yet – create your own vibe below 🎧
       </div>
-      <button id="showAllMoodsBtn" class="back-button">← Back to Moods</button>
       <div id="yourMoodsGrid" class="playlist-grid"></div>
     </section>
-    
+    <button id="showAllMoodsBtn" class="back-button">← Back to Moods</button>
+
     <h1 class="section-title">Popular Moods</h1>
     <div class="playlist-grid">
       <!-- Happy Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Happy</h3>
           <button class="favorite-button">
@@ -49,7 +49,7 @@
       </div>
 
       <!-- Chill Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Chill</h3>
           <button class="favorite-button">
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Energetic Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Energetic</h3>
           <button class="favorite-button">
@@ -81,7 +81,7 @@
       </div>
 
       <!-- Focus Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Focus</h3>
           <button class="favorite-button">
@@ -97,7 +97,7 @@
       </div>
 
       <!-- Sad Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Sad</h3>
           <button class="favorite-button">
@@ -113,7 +113,7 @@
       </div>
 
       <!-- Party Mood -->
-      <div class="playlist-card">
+      <div class="mood-card playlist-card">
         <div class="card-header">
           <h3 class="mood-title">Party</h3>
           <button class="favorite-button">
@@ -134,10 +134,10 @@
     <div class="create-mood">
       <h2 class="section-title">Create your own Mood</h2>
       <div class="form-group">
-        <input type="text" id="moodName" placeholder="Mood Name (e.g. 'Morning Coffee')">
+        <input type="text" id="moodNameInput" placeholder="Mood Name (e.g. 'Morning Coffee')">
       </div>
       <div class="form-group">
-        <input type="text" id="moodURL" placeholder="Spotify Playlist URL">
+        <input type="text" id="moodURLInput" placeholder="Spotify Playlist URL">
       </div>
       <button id="addMoodBtn" class="add-mood-btn">Add Mood</button>
     </div>
