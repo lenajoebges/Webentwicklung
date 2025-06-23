@@ -93,23 +93,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.remove();
     });
 
-    card.addEventListener("click", (e) => {
-      if (
-        e.target.closest(".favorite-button") ||
-        e.target.closest(".heart-icon") ||
-        e.target.closest(".delete-button")
-      ) {
-        return;
-      }
-
-      document.querySelectorAll(".playlist-card").forEach(c => {
-        if (c !== card) c.classList.add("hidden");
-      });
-
-      card.classList.add("fullscreen-card");
-      backButton.style.display = "block";
-    });
-
     const favBtn = card.querySelector(".favorite-button");
     const heart = favBtn.querySelector(".heart-icon");
 
